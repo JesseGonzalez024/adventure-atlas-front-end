@@ -4,15 +4,15 @@ import './App.css';
 
 import Home from './components/Home'
 import Adventures from './containers/Adventures'
-// import NewAdventure from './components/NewAdventure'
+import NewAdventure from './components/NewAdventure'
 
 function App() {
   return (
     <div className="App">
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/adventures" component={Adventures}/>
-        {/* <Route exact path="/adventures/new" component={NewAdventure}/> */}
+        <Route exact path="/adventures" component={Adventures}/>
+        <Route exact path="/adventures/new" component={NewAdventure}/>
       </Switch>
     </div>
   );
