@@ -1,4 +1,12 @@
 .App {
+  background: white;
+  margin: auto;
+  max-width: auto;
+  margin-top: 70px;
+  padding: 1.10%;
+  width: 75%;
+  padding-bottom: 30%;
+  background-color: whitesmoke;
   text-align: center;
 }
 
