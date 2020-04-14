@@ -5,23 +5,21 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter as Router} from "react-router-dom";
 
-// import {Provider} from 'react-redux';
-// import { createStore } from 'redux';
+import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from './reducers/rootReducer'
 
-// import rootReducer from './reducers/rootReducer'
 import App from './App'; 
 
 
-// Add Broswer Chrome Extensions??
-
-// const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <React.StrictMode>
     <Router >
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
         <App />
-      {/* </Provider> */}
+      </Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

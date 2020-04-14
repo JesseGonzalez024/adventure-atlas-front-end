@@ -1,8 +1,6 @@
-import {combineReducers} from 'redux'
-import adventureReducer from './adventureReducer'
+import {combineReducers} from 'redux';
+import adventureReducer from './adventureReducer';
 
-const rootReducer = combineReducers({
+export default combineReducers({
     adventureReducer
 })
-
-export default rootReducer

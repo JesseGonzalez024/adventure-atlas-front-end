@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home'
-import Adventures from './containers/Adventures'
+import Library from './containers/Library'
 import NewAdventure from './components/NewAdventure'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route exact path="/adventures" component={Adventures}/>
+        <Route exact path="/adventures" component={Library}/>
         <Route exact path="/adventures/new" component={NewAdventure}/>
       </Switch>
     </div>
