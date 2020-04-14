@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 //Presentational Component
-
 const buttonStyle = {
   backgroundColor: "#2a9fc9",
   color: "rgb(231, 228, 238)",
@@ -11,7 +10,6 @@ const buttonStyle = {
   fontSize: "30px",
   margin: "15px",
 }
-
 
 const Home = props => (
     <div>

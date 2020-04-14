@@ -1,5 +1,5 @@
 function initialState(){
-    return {adventures: []}
+    return {adventures: [] }
 } 
 
 const adventureReducer = (state = initialState, action) => {
