@@ -1,11 +1,12 @@
 .App {
+  border-radius: 50px;
   background: white;
   margin: auto;
   max-width: auto;
-  margin-top: 70px;
+  margin-top: 100px;
   padding: 1.10%;
-  width: 75%;
-  padding-bottom: 10%;
+  width: 70%;
+  padding-bottom: 5%;
   background-color: whitesmoke;
   text-align: center;
 }
@@ -38,7 +39,7 @@ h1 {
   /* margin: 0px;
   padding: 0px;
   box-sizing: border-box; */
-  text-align: left;
+  /* text-align: left; */
 }
 
 #newFormInput {
@@ -46,7 +47,6 @@ h1 {
   height: 50px;
   border-radius: 25px;
   padding: 0 30px;
-  /* width: 100%; */
   background: #e6e6e6;
   font-family: Montserrat-Bold;
   font-size: 15px;
@@ -54,20 +54,19 @@ h1 {
   color: #666666;
   outline: none;
   border: none;
-
 }
 
 button:enabled {
   background-color: #2a9fc9;
   color: rgb(231, 228, 238);
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: impact;
   font-size: 30px;
   margin: 15px;
 }
 
 button:disabled {
-  border-radius: 10px;
+  border-radius: 20px;
   font-family: impact;
   font-size: 30px;
   margin: 15px;

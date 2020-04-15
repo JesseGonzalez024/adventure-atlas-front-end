@@ -56,7 +56,6 @@ class NewAdventure extends React.Component{
                 <h1>Create a New Adventure!</h1>
                 
                 <form id="newForm" onSubmit={(event) => this.handleOnSubmit(event)}>
-                    <fieldset>
                         <div>
                             <input 
                                 id="newFormInput"
@@ -79,6 +78,16 @@ class NewAdventure extends React.Component{
                             <br />
                             <br />
                         </div>
+                        <div>           
+                            <input 
+                                id="newFormInput"
+                                type="text" 
+                                onChange={(event) => this.handleChange(event)} 
+                                name="photo"
+                                placeholder="Photo URL"  
+                                value={this.state.photo}/>{this.state.photo === '' ? "" : <button onClick={(event) => this.addPhotos(event)} value={this.state.photo}> + </button>}
+                            <p>{this.state.photoCollection < 1 ? "No photos have been uploaded" : `You have uploaded ${this.state.photoCollection.length} photos! Add another?`}</p>                           
+                        </div>
                         <div>
                             <textarea 
                                 id="newFormInput"
@@ -89,16 +98,6 @@ class NewAdventure extends React.Component{
                             <br />
                             <br />
                         </div>
-                        <div>           
-                                <input 
-                                    id="newFormInput"
-                                    type="text" 
-                                    onChange={(event) => this.handleChange(event)} 
-                                    name="photo"
-                                    placeholder="Photo URL"  
-                                    value={this.state.photo}/>{this.state.photo === '' ? "" : <button onClick={(event) => this.addPhotos(event)} value={this.state.photo}> + </button>}
-                                <p>{this.state.photoCollection < 1 ? "No photos have been uploaded" : `You have uploaded ${this.state.photoCollection.length} photos! Add another?`}</p>                           
-                        </div>
                         <button 
                             onClick={this.handleOnSubmit} 
                             type="submit" 
@@ -106,7 +105,6 @@ class NewAdventure extends React.Component{
                         <br></br>
                         <Link to='/adventures'><button>View Existing Adventures</button></Link>
                         <br></br>
-                    </fieldset>
                 </form>
             </div>
         )
