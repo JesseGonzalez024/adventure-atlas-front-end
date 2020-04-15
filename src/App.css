@@ -15,6 +15,37 @@
   pointer-events: none;
 }
 
+#homeIntro {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  margin-left: 200px;
+  margin-bottom: 0;
+  padding-right: 100px;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+}
+
+h1 {
+  font-family: Std, fantasy;
+}
+
+#homeTitle {
+  font-family: Std, fantasy;
+  font-size: 100px;
+}
+
+button {
+  background-color: #2a9fc9;
+  color: rgb(231, 228, 238);
+  border-radius: 10px;
+  font-family: impact;
+  font-size: 30px;
+  margin: 15px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

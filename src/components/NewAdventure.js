@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { addAdventure } from '../actions/adventures'
 
@@ -16,24 +17,18 @@ class NewAdventure extends React.Component{
     }
 
     handleChange = event => {
-        this.setState({[event.target.name]: event.target.value})
-        console.log("Handle On Change method", this.state)  
+        this.setState({[event.target.name]: event.target.value})  
     }
 
     handleOnSubmit = event => {
         event.preventDefault()
-        debugger
         const {name, location, description, photoCollection, tagCollection} = this.state
         
-        const adventure = {
-          name,
-          location,
-          description,
-          photoCollection,
-          tagCollection
-        }
+        const adventure = {name, location, description, photoCollection, tagCollection}
 
+        debugger
         this.props.addAdventure(adventure)
+        
         this.setState({
             name: '',
             location: '',
@@ -42,36 +37,32 @@ class NewAdventure extends React.Component{
         })
     }
 
-  isValid() {
-    if (this.state.name === '' || this.state.location === '' || this.state.description === '' || this.state.photo === '' || this.state.photoCollection.length === 0) {
-      return false
-    } else {
-      return true
+    isValid() {
+        if (this.state.name === '' || this.state.location === '' || this.state.description === '' || this.state.photo === '' || this.state.photoCollection.length === 0) {
+            return false
+        } else {
+            return true
+        }
     }
-  }
 
-  handleMorePhotos = event => {
+    handleMorePhotos = event => {
         event.preventDefault()
     
         this.setState({
             ...this.state, [this.state.photoCollection]: this.state.photoCollection.push(event.target.value)
         })
-  }
+    }
 
     addPhotoEntries() {
-        
-        let x = 0
-        
+        let x = 0    
         while (x < this.state.photoCollection.length + 1) {
             x++
-            return <li><input type="text" onChange={(event) => this.handleChange(event)} name="photo" value={this.state.photos}/></li>
+            return <input type="text" onChange={(event) => this.handleChange(event)} name="photo" value={this.state.photos}/>
         }
     }
 
-    
     render(){
 
-        console.log(this.state)
         return (
             <div>
                 <h1>Create a New Adventure!</h1>
@@ -98,12 +89,12 @@ class NewAdventure extends React.Component{
                         </div>
                         <div>
                             <label>Photo URL: </label>
-                                <ul >
-                                    {this.addPhotoEntries()}
-                                </ul>
-                                {this.state.photo === '' ? "Add a photo" : <button onClick={(event) => this.handleMorePhotos(event)} value={this.state.photo}> + </button>}                           
+                            {this.addPhotoEntries()}           
+                            {this.state.photo === '' ? "Upload a photo" : <button onClick={(event) => this.handleMorePhotos(event)} value={this.state.photo}> + </button>}                           
                         </div>
                         <button onClick={this.handleOnSubmit} type="submit" disabled={!this.isValid()} > Create! </button>
+                        <br></br>
+                        <Link to='/adventures'><button>View Existing Adventures</button></Link>
                     </fieldset>
                 </form>
             </div>

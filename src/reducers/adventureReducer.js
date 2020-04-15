@@ -1,12 +1,16 @@
 
 const adventureReducer = (state = [], action) => {
-    
+ 
     // debugger
+    
     switch(action.type){
         case 'ADD_ADVENTURE':
-            return [...state, action.adventure]
+            return {adventures: action.adventure}
         
-        default:
+        case 'UPVOTE_ADVENTURE':
+            return {adventure: action.adventure}
+        
+         default:
             return state
     }
 }
