@@ -32,6 +32,3 @@ const adventureReducer = (state = initialState, action) => {
 }
 
 export default adventureReducer
-
-
-
