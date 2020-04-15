@@ -16,7 +16,7 @@ export const upvoteAdventure = id => {
 
 export function fetchAdventures(){
     return (dispatch) => {
-      dispatch({ type: 'FETCHING_ADVENTURES' });
+      dispatch({ type: 'LOADING_ADVENTURES' });
         
       fetch("http://127.0.0.1:3000/adventures")
         .then(response => response.json())

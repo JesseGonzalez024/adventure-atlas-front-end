@@ -9,7 +9,7 @@ const adventureReducer = (state = initialState, action) => {
 
     debugger
     switch(action.type) {
-        case 'FETCHING_ADVENTURES':
+        case 'LOADING_ADVENTURES':
             return {
                 ...state,
                 astronauts: [...state.astronauts],
