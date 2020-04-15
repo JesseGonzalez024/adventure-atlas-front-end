@@ -26,7 +26,6 @@ class NewAdventure extends React.Component{
         
         const adventure = {name, location, description, photoCollection, tagCollection}
 
-        debugger
         this.props.addAdventure(adventure)
         
         this.setState({
@@ -49,10 +48,6 @@ class NewAdventure extends React.Component{
         event.preventDefault()
         let value = event.target.value
         this.setState(prevState => ({photo: '', photoCollection: [...prevState.photoCollection, value]}))
-    }
-
-    addPhotoEntries = () => {
-            return (<input type="text" onChange={(event) => this.handleChange(event)} name="photo" value={this.state.photo}/>)
     }
 
     render(){
@@ -93,10 +88,14 @@ class NewAdventure extends React.Component{
                             <br />
                         </div>
                         <div>
-                        <p>{this.state.photoCollection < 1 ? "No photos have been uploaded" : `You have uploaded ${this.state.photoCollection.length} photos! Add another?`}</p>                        
-                            <label>Photo URL: </label>
-                            {this.addPhotoEntries()}           
-                            {this.state.photo === '' ? "Upload a photo" : <button onClick={(event) => this.handleMorePhotos(event)} value={this.state.photo}> + </button>}                           
+                            <p>{this.state.photoCollection < 1 ? "No photos have been uploaded" : `You have uploaded ${this.state.photoCollection.length} photos! Add another?`}</p>                        
+                                <label>Photo URL: </label>
+                                <input 
+                                    type="text" 
+                                    onChange={(event) => this.handleChange(event)} 
+                                    name="photo" 
+                                    value={this.state.photo}/>
+                                {this.state.photo === '' ? "Upload a photo" : <button onClick={(event) => this.handleMorePhotos(event)} value={this.state.photo}> + </button>}                           
                         </div>
                         <button 
                             onClick={this.handleOnSubmit} 
