@@ -22,12 +22,11 @@ class NewAdventure extends React.Component{
 
     handleOnSubmit = event => {
         event.preventDefault()
+
         const {name, location, description, photoCollection, tagCollection} = this.state
-        
         const adventure = {name, location, description, photoCollection, tagCollection}
 
-        this.props.addAdventure(adventure)
-        
+        this.props.addAdventure(adventure)    
         this.setState({
             name: '',
             location: '',
@@ -37,14 +36,14 @@ class NewAdventure extends React.Component{
     }
 
     isValid() {
-        if (this.state.name === '' || this.state.location === '' || this.state.description === '' || this.state.photo === '' || this.state.photoCollection.length === 0) {
+        if (this.state.name === '' || this.state.location === '' || this.state.description === '' || this.state.photoCollection.length === 0) {
             return false
         } else {
             return true
         }
     }
     
-    handleMorePhotos = event => {
+    addPhotos = event => {
         event.preventDefault()
         let value = event.target.value
         this.setState(prevState => ({photo: '', photoCollection: [...prevState.photoCollection, value]}))
@@ -56,46 +55,49 @@ class NewAdventure extends React.Component{
             <div>
                 <h1>Create a New Adventure!</h1>
                 
-                <form onSubmit={(event) => this.handleOnSubmit(event)}>
+                <form id="newForm" onSubmit={(event) => this.handleOnSubmit(event)}>
                     <fieldset>
                         <div>
-                            <label>Name: </label>
                             <input 
+                                id="newFormInput"
                                 type="text" 
                                 onChange={(event) => this.handleChange(event)} 
-                                name="name" 
+                                name="name"
+                                placeholder="Name"  
                                 value={this.state.name} />
                             <br />
                             <br />
                         </div>
                         <div>
-                            <label>Location: </label>
                             <input 
+                                id="newFormInput"
                                 type="text" 
                                 onChange={(event) => this.handleChange(event)} 
                                 name="location" 
+                                placeholder="Location" 
                                 value={this.state.location} />
                             <br />
                             <br />
                         </div>
                         <div>
-                            <label>Description: </label>
                             <textarea 
+                                id="newFormInput"
                                 onChange={(event) => this.handleChange(event)} 
-                                name="description" 
+                                name="description"
+                                placeholder="Description" 
                                 value={this.state.description} />
                             <br />
                             <br />
                         </div>
-                        <div>
-                            <p>{this.state.photoCollection < 1 ? "No photos have been uploaded" : `You have uploaded ${this.state.photoCollection.length} photos! Add another?`}</p>                        
-                                <label>Photo URL: </label>
+                        <div>           
                                 <input 
+                                    id="newFormInput"
                                     type="text" 
                                     onChange={(event) => this.handleChange(event)} 
-                                    name="photo" 
-                                    value={this.state.photo}/>
-                                {this.state.photo === '' ? "Upload a photo" : <button onClick={(event) => this.handleMorePhotos(event)} value={this.state.photo}> + </button>}                           
+                                    name="photo"
+                                    placeholder="Photo URL"  
+                                    value={this.state.photo}/>{this.state.photo === '' ? "" : <button onClick={(event) => this.addPhotos(event)} value={this.state.photo}> + </button>}
+                                <p>{this.state.photoCollection < 1 ? "No photos have been uploaded" : `You have uploaded ${this.state.photoCollection.length} photos! Add another?`}</p>                           
                         </div>
                         <button 
                             onClick={this.handleOnSubmit} 

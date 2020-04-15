@@ -34,9 +34,39 @@ h1 {
   font-size: 100px;
 }
 
-button {
+#newForm {
+  /* margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; */
+  text-align: left;
+}
+
+#newFormInput {
+  text-align: left;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 30px;
+  /* width: 100%; */
+  background: #e6e6e6;
+  font-family: Montserrat-Bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  outline: none;
+  border: none;
+
+}
+
+button:enabled {
   background-color: #2a9fc9;
   color: rgb(231, 228, 238);
+  border-radius: 10px;
+  font-family: impact;
+  font-size: 30px;
+  margin: 15px;
+}
+
+button:disabled {
   border-radius: 10px;
   font-family: impact;
   font-size: 30px;

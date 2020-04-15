@@ -7,7 +7,7 @@ let initialState = {
 
 const adventureReducer = (state = initialState, action) => {
 
-    debugger
+    // debugger
     switch(action.type) {
         case 'LOADING_ADVENTURES':
             return {
