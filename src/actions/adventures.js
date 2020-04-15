@@ -7,11 +7,25 @@ export const addAdventure = adventure => {
     };
   };
 
-  export const upvoteAdventure = id => {
+export const upvoteAdventure = id => {
     return {
       type: 'UPVOTE_ADVENTURE',
       id
     };
-  };
+};
+
+export function fetchAdventures(){
+    return (dispatch) => {
+      dispatch({ type: 'FETCHING_ADVENTURES' });
+        fetch('')
+        .then(response => response.json())
+        .then(adventures => dispatch({
+          type: 'ADD_ADVENTURES', 
+          adventures
+        }
+      )
+    )
+  }
+}
 
   
