@@ -1,15 +1,26 @@
 import React from 'react';
-
-
+import SearchBar from '../components/SearchBar'
+import Filter from '../components/Filter'
+import Adventures from './Adventures'
 // This container will host the 
 //   - search bar component
 //   - filter component
 //   - adventures component, which in turn will render the stateless AdventureCard
 
 const Library = props => (
-    
         <div>
-            <h1>What To Do</h1>
+            <div>
+                <h1>Adventure Atlas Library</h1>
+            </div>
+            <div>
+                <SearchBar />
+            </div>
+            <div>
+                <Filter />
+            </div>
+            <div>
+                <Adventures />
+            </div>
         </div>
     
 

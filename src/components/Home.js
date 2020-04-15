@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const Home = props => (
     <div>
-        <p id="homeIntro">Find your local adventure with...</p>
+        <p id="homeIntro">Find your next local adventure with...</p>
             <h1 id="homeTitle">Adventure Atlas</h1>
                 <Link to='/adventures'><button>All Adventures</button></Link>
-                <Link to={'/adventures/new'}><button> New Adventure</button></Link>
+                <Link to='/adventures/new'><button> New Adventure</button></Link>
     </div>
   )
 
