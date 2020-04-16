@@ -73,6 +73,12 @@ h1 {
   text-decoration: none;
 }
 
+#navBar:active {
+  color: rgb(231, 228, 238);
+  background-color: #14566e;
+  text-decoration: none;
+}
+
 #navBar:visited {
   color: rgb(231, 228, 238);
   text-decoration: none;

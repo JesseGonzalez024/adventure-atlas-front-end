@@ -27,11 +27,11 @@ class NewAdventure extends React.Component{
         const {name, location, description, photoCollection, tagCollection} = this.state
         const adventure = {name, location, description}
         const photos = {photoCollection}
-        const tags = {tagCollection}
+        // const tags = {tagCollection}
 
         this.props.addAdventure(adventure) 
         this.props.addPhotos(photos)
-        this.props.addTags(tags)   
+        // this.props.addTags(tags)   
         
         this.setState({
             name: '',
