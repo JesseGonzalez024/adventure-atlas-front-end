@@ -8,7 +8,7 @@ export const upvoteAdventure = id => {
 
 // ASYNC
 export const addAdventure = adventure => {
-  console.log("Inside addAdventure action creator", adventure.type, adventure)
+  console.log("Inside addAdventure action creator", adventure)
     
   const postAdventureObj = {
         method: "POST",
@@ -40,7 +40,7 @@ export function fetchAdventures(){
       fetch("http://127.0.0.1:3000/adventures")
         .then(response => response.json())
         .then(adventures => dispatch({
-          type: 'RECIVED_ADVENTURES',
+          type: 'RECEIVED_ADVENTURES',
           payload: adventures
         }))
   };

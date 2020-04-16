@@ -15,7 +15,7 @@ const photoReducer = (state = initialState, action) => {
                 loading: true
             }
         
-        case 'RECIVED_PHOTOS':
+        case 'RECEIVED_PHOTOS':
             return {
                 ...state,
                 photos: action.payload,

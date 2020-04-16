@@ -17,7 +17,7 @@ const adventureReducer = (state = initialState, action) => {
                 loading: true
             }
         
-        case 'RECIVED_ADVENTURES':
+        case 'RECEIVED_ADVENTURES':
             return {
                 ...state,
                 adventures: action.payload,

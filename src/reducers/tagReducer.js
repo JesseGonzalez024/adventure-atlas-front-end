@@ -16,7 +16,7 @@ const tagReducer = (state = initialState, action) => {
                 loading: true
             }
         
-        case 'RECIVED_TAGS':
+        case 'RECEIVED_TAGS':
             return {
                 ...state,
                 tags: action.payload,
