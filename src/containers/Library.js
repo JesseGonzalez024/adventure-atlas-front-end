@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar'
-import Filter from '../components/Filter'
+import Filter from '../components/TagCard'
 import Adventures from './Adventures'
 // This container will host the 
 //   - search bar component

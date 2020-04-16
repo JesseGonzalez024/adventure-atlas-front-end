@@ -35,12 +35,12 @@ h1 {
   font-size: 100px;
 }
 
-#newForm {
-  /* margin: 0px;
+/* #newForm {
+  margin: 0px;
   padding: 0px;
-  box-sizing: border-box; */
-  /* text-align: left; */
-}
+  box-sizing: border-box;
+  text-align: left;
+} */
 
 #newFormInput {
   text-align: left;
