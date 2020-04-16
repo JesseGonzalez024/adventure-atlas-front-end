@@ -7,7 +7,6 @@ import Library from './containers/Library'
 import NewAdventure from './containers/NewForm'
 import NavBar from './components/NavBar'
 
-
 class App extends React.Component {
   render(){
     return (

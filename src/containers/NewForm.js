@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux';
 
 import { addAdventure } from '../actions/adventures'
+import { addPhotos } from '../actions/photos'
+import { addTags } from '../actions/tags'
 
 class NewAdventure extends React.Component{
 
@@ -23,7 +25,11 @@ class NewAdventure extends React.Component{
         event.preventDefault()
 
         const {name, location, description, photoCollection, tagCollection} = this.state
-        const adventure = {name, location, description, photoCollection, tagCollection}
+        const adventure = {name, location, description}
+        const photos = {photoCollection}
+        const tags = {tagCollection}
+
+        debugger
 
         this.props.addAdventure(adventure)    
         this.setState({

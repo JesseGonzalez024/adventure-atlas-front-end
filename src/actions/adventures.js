@@ -1,11 +1,4 @@
-//------ Fetch POST Obj Arguments ------------------------
 
-//POST to Adventures Controller
-
-// For Plural Adventures Obj retreival
-// Used during Library rendering 
-
-//This Action is called if User rates exisiting Adventure
 export const upvoteAdventure = id => {
   return {
     type: 'UPVOTE_ADVENTURE',
@@ -13,11 +6,9 @@ export const upvoteAdventure = id => {
   };
 };
 
-//---------ASYNC--------------------------------------
-
-//This Action is called after a user creates new Adventure
+// ASYNC
 export const addAdventure = adventure => {
-  console.log("Inside Action Creator", adventure.type, adventure)
+  console.log("Inside addAdventure action creator", adventure.type, adventure)
     
   const postAdventureObj = {
         method: "POST",
