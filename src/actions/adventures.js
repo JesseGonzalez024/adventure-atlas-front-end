@@ -30,25 +30,18 @@ const postTagsObj = {
         body: JSON.stringify(tags)
 }
 
-//------ Fetch Action return value -------------------
-
-// For Singular Adventure Obj creation
-// Used after newForm
-const gotAdevnture = (adventure) => {
-  return {
-      type: 'GOT_ADVENTURE',
-      payload: adventure
-  }
-}
 
 // For Plural Adventures Obj retreival
 // Used during Library rendering 
-const gotAdevntures = (adventures) => {
+
+//This Action is called if User rates exisiting Adventure
+export const upvoteAdventure = id => {
   return {
-    type: 'GOT_ADVENTURES',
-    payload: adventures
-  }
-}
+    type: 'UPVOTE_ADVENTURE',
+    id
+  };
+};
+
 
 //---------ASYNC--------------------------------------
 
@@ -60,27 +53,25 @@ export const addAdventure = adventure => {
 
     fetch("http://127.0.0.1:3000/adventures", postAdventureObj)
           .then(resp => resp.json())
-          .then(adventure => dispatch(gotAdevnture(adventure)))
+          .then(adventure => dispatch({
+            type: 'GOT_ADVENTURE',
+            payload: adventure
+        }))
   };
 };
 
-//This Action is called if User rates exisiting Adventure
-export const upvoteAdventure = id => {
-    return {
-      type: 'UPVOTE_ADVENTURE',
-      id
-    };
-};
-
-
 //This Action is called by the Library Container
+//Retrives all Adv instances from API
 export function fetchAdventures(){
     return (dispatch) => {
       dispatch({ type: 'LOADING_ADVENTURES' });
         
       fetch("http://127.0.0.1:3000/adventures")
         .then(response => response.json())
-        .then(adventures => dispatch(gotAdevntures(adventures)))
+        .then(adventures => dispatch({
+          type: 'GOT_ADVENTURES',
+          payload: adventures
+        }))
   };
 };
 
