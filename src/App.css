@@ -18,6 +18,11 @@
   pointer-events: none;
 }
 
+* {
+  max-width: 100%;
+  height: "auto"
+}
+
 #homeIntro {
   margin-top: 0;
   padding-top: 3px;
@@ -101,11 +106,6 @@ button:disabled {
   font-family: impact;
   font-size: 30px;
   margin: 15px;
-}
-
-#AdventuresContainer {
-  /* background-color: slategray;
-  border-radius: 20px; */
 }
 
 fieldset {

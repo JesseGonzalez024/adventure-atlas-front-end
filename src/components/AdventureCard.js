@@ -6,7 +6,8 @@ const AdventureCard = props => {
 
    let imageStyle ={
         borderRadius: "10px",
-        width: "300px"
+        maxWidth: "100%",
+        height: "auto"
     }
     return (
         <div id="AdvCard">
