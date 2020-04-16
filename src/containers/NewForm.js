@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { addAdventure } from '../actions/adventures'
 
@@ -103,7 +102,6 @@ class NewAdventure extends React.Component{
                             type="submit" 
                             disabled={!this.isValid()} > Create! </button>
                         <br></br>
-                        <Link to='/adventures'><button>View Existing Adventures</button></Link>
                         <br></br>
                 </form>
             </div>

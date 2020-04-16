@@ -1,0 +1,43 @@
+
+let initialState = {
+    tags: [],
+    loading: false
+
+}
+
+const tagReducer = (state = initialState, action) => {
+
+    console.log("Inside Photos Reducer", action, state)
+
+    switch (action.type) {
+        case 'FETCHING_TAGS':
+            return {
+                ...state, 
+                loading: true
+            }
+        
+        case 'RECIVED_TAGS':
+            return {
+                ...state,
+                tags: action.payload,
+                loading: false
+            }
+        
+        case 'CREATING_TAGS':
+            return {
+                ...state,
+                loading: true
+            }
+
+        case 'TAGS_CREATED':
+            return {
+                ...state,
+                tags: [...state.tags, action.payload],
+                loading: false
+            }
+        default:
+            return state
+    }
+}
+
+export default tagReducer

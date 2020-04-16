@@ -17,6 +17,8 @@
 }
 
 #homeIntro {
+  margin-top: 0;
+  padding-top: 3px;
   font-family: "Courier New", Courier, monospace;
   font-size: 20px;
 }
@@ -33,14 +35,8 @@ h1 {
 #homeTitle {
   font-family: Std, fantasy;
   font-size: 100px;
+  margin-bottom: 0; 
 }
-
-/* #newForm {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  text-align: left;
-} */
 
 #newFormInput {
   text-align: left;
@@ -55,6 +51,35 @@ h1 {
   outline: none;
   border: none;
 }
+
+#navBar:link {
+  padding: 2px;
+  background-color: #2a9fc9;
+  color: rgb(231, 228, 238);
+  border-radius: 5px;
+  font-family: impact;
+  font-size: 20px;
+  margin: 15px;
+  text-decoration: none;
+}
+
+#navBar:hover {
+  background-color: #14566e;
+  color: rgb(231, 228, 238);
+  border-radius: 5px;
+  font-family: impact;
+  font-size: 20px;
+  margin: 15px;
+  text-decoration: none;
+}
+
+#navBar:visited {
+  color: rgb(231, 228, 238);
+  text-decoration: none;
+}
+
+
+
 
 button:enabled {
   background-color: #2a9fc9;

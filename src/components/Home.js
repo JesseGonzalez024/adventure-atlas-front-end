@@ -1,14 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
-//Presentational Component
-
-const Home = props => (
+const Home = () => (
     <div>
-        <p id="homeIntro">Find your next local adventure with...</p>
-            <h1 id="homeTitle">Adventure Atlas</h1>
-                <Link to='/adventures'><button>All Adventures</button></Link>
-                <Link to='/adventures/new'><button> New Adventure</button></Link>
+          <h1 id="homeTitle">Adventure Atlas</h1>
+          <p id="homeIntro">find your next local adventure</p>
     </div>
   )
 

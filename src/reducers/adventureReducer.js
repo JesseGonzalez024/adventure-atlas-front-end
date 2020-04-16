@@ -7,6 +7,8 @@ let initialState = {
 
 const adventureReducer = (state = initialState, action) => {
 
+    console.log("Inside Photos Reducer", action, state)
+
     // debugger
     switch(action.type) {
         case 'FETCHING_ADVENTURES':
@@ -18,19 +20,20 @@ const adventureReducer = (state = initialState, action) => {
         case 'RECIVED_ADVENTURES':
             return {
                 ...state,
-                adventures: action.adventures,
+                adventures: action.payload,
                 loading: false
             }
  
         case 'CREATING_ADVENTURE':
             return {
                 ...state,
-                adventures: action.adventures,
-                loading: false
+                loading: true
             }
         case 'ADVENTURE_CREATED':
             return {
-
+                ...state,
+                adventures: [...state.adventures, action.payload],
+                loading: false
             }
 
         case 'UPVOTE_ADVENTURE':

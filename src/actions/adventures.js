@@ -2,28 +2,6 @@
 
 //POST to Adventures Controller
 
-
-//Post to Photos Controller
-// const postPhotosObj = {
-//   method: "POST",
-//     headers: {
-//         "Content-Type": "application/json",
-//         "Accept": "application/json"
-//     },
-//         body: JSON.stringify(photos)
-// }
-
-//Post to Tags Controller
-// const postTagsObj = {
-//   method: "POST",
-//     headers: {
-//         "Content-Type": "application/json",
-//         "Accept": "application/json"
-//     },
-//         body: JSON.stringify(tags)
-// }
-
-
 // For Plural Adventures Obj retreival
 // Used during Library rendering 
 
@@ -34,7 +12,6 @@ export const upvoteAdventure = id => {
     id
   };
 };
-
 
 //---------ASYNC--------------------------------------
 
@@ -77,9 +54,3 @@ export function fetchAdventures(){
         }))
   };
 };
-
-//This Action Retrives all Photos
-
-//This Action Retrives all Tags
-
-  
