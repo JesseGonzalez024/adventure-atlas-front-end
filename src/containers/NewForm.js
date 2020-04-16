@@ -29,9 +29,10 @@ class NewAdventure extends React.Component{
         const photos = {photoCollection}
         const tags = {tagCollection}
 
-        debugger
-
-        this.props.addAdventure(adventure)    
+        this.props.addAdventure(adventure) 
+        this.props.addPhotos(photos)
+        this.props.addTags(tags)   
+        
         this.setState({
             name: '',
             location: '',
@@ -118,7 +119,9 @@ class NewAdventure extends React.Component{
 const mapDispatchToProps = dispatch => {
  
     return {
-      addAdventure: (adventure) => { dispatch(addAdventure(adventure, console.log("Running addAdventure function now", adventure))) }
+      addAdventure: (adventure) => { dispatch(addAdventure(adventure, console.log("Running addAdventure function now", adventure)))},
+      addPhotos: (photos) => {dispatch(addPhotos(photos))},
+      addTags: (tags) => {dispatch(addTags(tags))}
     }
 }
 
