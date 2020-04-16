@@ -5,6 +5,7 @@ import Adventures from './Adventures'
 
 const Library = () => (
         <div>
+            <br />
             <h1>Adventure Atlas Library</h1>
             <SearchBar />
             <Filter />

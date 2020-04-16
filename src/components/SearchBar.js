@@ -2,14 +2,22 @@ import React from 'react';
 
 class SearchBar extends React.Component {
 
+    state = {
+        search: ''
+    }
+
     render() {
         return (
             <div>
-                <p>Search by location or trail name</p>
-                <div>
-                    <input id="searchBar" name="searchBar"></input>
+                <form>
+                    <input id="searchBar" 
+                        name="searchBar" 
+                        placeholder="Search by location"
+                        value={this.state.search}>
+                    </input>
                     <button>Search</button>
-                </div>
+                </form>
+                <br />
             </div>
         )
     }

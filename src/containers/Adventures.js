@@ -19,6 +19,7 @@ class Adventures extends React.Component{
                     photos={adv.photos}
                     />                
                 )}
+                <br />
             </div>
         )
     };
