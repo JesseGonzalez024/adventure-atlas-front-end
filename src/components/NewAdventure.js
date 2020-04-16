@@ -86,7 +86,7 @@ class NewAdventure extends React.Component{
                                 name="photo"
                                 placeholder="Photo URL"  
                                 value={this.state.photo}/>{this.state.photo === '' ? null : <button onClick={(event) => this.addPhotos(event)} value={this.state.photo}> + </button>}
-                            <p>{this.state.photoCollection < 1 ? "No photos have been uploaded" : `You have uploaded ${this.state.photoCollection.length} photos! Add another?`}</p>                           
+                            <p>{this.state.photoCollection < 1 ? "No photos uploaded" : `${this.state.photoCollection.length} photos uploaded! Add more?`}</p>                           
                         </div>
                         <div>
                             <textarea 

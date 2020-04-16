@@ -1,6 +1,6 @@
 
 let initialState = {
-    state: [],
+    adventures: [],
     loading: false
 }
 
@@ -9,20 +9,28 @@ const adventureReducer = (state = initialState, action) => {
 
     // debugger
     switch(action.type) {
-        // case 'ADD_ADVENTURE':
-        //     return {...state, [...state.adventures, adventure]}
-        // case 'LOADING_ADVENTURES':
-        //     return {
-        //         ...state,
-        //         astronauts: [...state.adventures],
-        //         loading: true
-        //     }
- 
-        case 'ADD_ADVENTURES':
+        case 'FETCHING_ADVENTURES':
+            return {
+                ...state, 
+                loading: true
+            }
+        
+        case 'RECIVED_ADVENTURES':
             return {
                 ...state,
                 adventures: action.adventures,
                 loading: false
+            }
+ 
+        case 'CREATING_ADVENTURE':
+            return {
+                ...state,
+                adventures: action.adventures,
+                loading: false
+            }
+        case 'ADVENTURE_CREATED':
+            return {
+
             }
 
         case 'UPVOTE_ADVENTURE':
