@@ -9,7 +9,7 @@ import NewAdventure from './containers/NewForm'
 import NavBar from './components/NavBar'
 
 import { fetchAdventures } from './actions/adventures'
-import { fetchPhotos } from './actions/photos'
+// import { fetchPhotos } from './actions/photos'
 // import { fetchTags } from '../actions/tags'
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ class App extends React.Component {
     console.log(this.props)
     
     this.props.fetchAdventures()
-    this.props.fetchPhotos()
+    // this.props.fetchPhotos()
 
     console.log("fetch actions initiated")
   }

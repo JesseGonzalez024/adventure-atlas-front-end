@@ -1,15 +1,19 @@
-
 import React from 'react'
 
-//Presentational Compoenent
-// Will recive as props from it's parent component
-// Renders the individual adventure info
+const AdventureCard = props => {
+    console.log(props.photos)
 
-
-const AdventureCard = props => (
-    <div>
-        
-    </div>
-)
+   let imageStyle ={
+        borderRadius: "10px",
+        width: "300px"
+    }
+    return (
+        <div id={`AdvCard ${props.id}`}>
+            <h3>{props.name}</h3>
+            <p>{props.location}</p>
+            <img src={props.photos[0].text} style={imageStyle}></img>
+        </div>
+    )
+}
 
 export default AdventureCard
