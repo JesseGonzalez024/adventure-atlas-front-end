@@ -22,7 +22,6 @@ class Adventures extends React.Component{
     }
     
     render() {
-        // console.log(this.props)
         return (
             <div id="AdventuresContainer">
                 {this.props.loading === true ? <p>Loading Content...</p> : this.renderAdventures()}
