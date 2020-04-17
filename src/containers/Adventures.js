@@ -9,23 +9,28 @@ class Adventures extends React.Component{
     componentDidMount(){
         this.props.fetchAdventures()
     }
-    
-    
-    render() {
-        console.log(this.props)
-        return (
-            <div id="AdventuresContainer">
-                {this.props.adventures.map((adv) => 
-                    <AdventureCard
+
+    renderAdventures = () => {
+        return this.props.adventures.map((adv) => {
+            return (
+                <AdventureCard
                     key={adv.id}
                     id={adv.id} 
                     name={adv.name}
                     location={adv.location}
                     description={adv.description}
                     photos={adv.photos}
-                    />                
-                )}
-                <br />
+                />  
+            )
+        })
+    }
+    
+    
+    render() {
+        console.log(this.props)
+        return (
+            <div id="AdventuresContainer">
+                {this.props.loading === true ? <p>Loading Content...</p> : this.renderAdventures()}
             </div>
         )
     };
