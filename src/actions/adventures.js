@@ -22,12 +22,15 @@ export const addAdventure = adventure => {
   return (dispatch) => {
     dispatch({ type: 'CREATING_ADVENTURE' });
 
-    fetch("http://127.0.0.1:3000/adventures", postAdventureObj)
+    return fetch("http://127.0.0.1:3000/adventures", postAdventureObj)
           .then(resp => resp.json())
-          .then(adventure => dispatch({
+          .then(adventure => {
+            dispatch({
             type: 'ADVENTURE_CREATED',
             payload: adventure
-        }))
+            })
+            return adventure
+        })
   };
 };
 

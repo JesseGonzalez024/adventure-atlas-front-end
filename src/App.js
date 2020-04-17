@@ -16,7 +16,6 @@ class App extends React.Component {
 
   componentDidMount(){
     console.log(this.props)
-    
     this.props.fetchAdventures()
     // this.props.fetchPhotos()
 
