@@ -1,9 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { fetchAdventures } from '../actions/adventures'
 import AdventureCard from '../components/AdventureCard'
 
 class Adventures extends React.Component{
+    
+    componentDidMount(){
+        this.props.fetchAdventures()
+    }
+    
     
     render() {
         console.log(this.props)
@@ -26,9 +32,11 @@ class Adventures extends React.Component{
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        adventures: state.adventureReducer.adventures
+        adventures: state.adventureReducer.adventures,
+        loading: state.adventureReducer.loading
     }
 }
 
-export default connect(mapStateToProps)(Adventures)
+export default connect(mapStateToProps, { fetchAdventures })(Adventures)
