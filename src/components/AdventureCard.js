@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 const AdventureCard = props => {
-    console.log(props)
+    // console.log(props)
 
    let imageStyle ={
         borderRadius: "10px",

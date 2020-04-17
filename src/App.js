@@ -1,15 +1,23 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
+import { connect } from 'react-redux'
 import './App.css';
 
 import Home from './components/Home'
 import Library from './containers/Library'
 import NewAdventure from './containers/NewForm'
 import NavBar from './components/NavBar'
-import AdvShowCard from './components/AdvShowCard'
+import AdvShowCard from './components/AdvShow'
+import { fetchAdventures } from './actions/adventures'
 
-const App = () => {
+class App extends React.Component{
   
+  componentDidMount(){
+    this.props.fetchAdventures()
+  }
+
+  render(){
+    console.log(this.props)
   return(
       <div className="App">
         <NavBar />
@@ -17,10 +25,17 @@ const App = () => {
           <Route exact path="/" component={Home}/>
           <Route exact path="/adventures" component={Library}/>
           <Route exact path="/adventures/new" component={NewAdventure}/>
-          <Route exact path='/adventures/:id' component={( { match } ) => <AdvShowCard match={match} />}/>
+          <Route exact path='/adventures/:id' component={( { match } ) => <AdvShowCard adventures={this.props.adventures} match={match} id={match.params.id}/>}/>
         </Switch>
       </div>
-  );
+    );
+  }
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+      adventures: state.adventureReducer.adventures
+  }
+}
+
+export default connect(mapStateToProps, { fetchAdventures })(App)

@@ -6,7 +6,7 @@ let initialState = {
 
 const photoReducer = (state = initialState, action) => {
     
-    console.log("Inside Photos Reducer", action, state)
+    // console.log("Inside Photos Reducer", action, state)
     
     switch (action.type) {
         case 'FETCHING_PHOTOS':

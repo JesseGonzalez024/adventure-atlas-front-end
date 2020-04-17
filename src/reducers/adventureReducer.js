@@ -7,7 +7,7 @@ let initialState = {
 
 const adventureReducer = (state = initialState, action) => {
 
-    console.log("Inside Photos Reducer", action, state)
+    // console.log("Inside Photos Reducer", action, state)
 
     // debugger
     switch(action.type) {
