@@ -4,12 +4,17 @@ let initialState = {
     loading: false
 }
 
+let  adventures 
+
+export function allAdventures(){
+    return  adventures
+}
+
 
 const adventureReducer = (state = initialState, action) => {
 
-    // console.log("Inside Photos Reducer", action, state)
+    console.log("Inside Adventures Reducer", action, state)
 
-    // debugger
     switch(action.type) {
         case 'FETCHING_ADVENTURES':
             return {
@@ -18,6 +23,9 @@ const adventureReducer = (state = initialState, action) => {
             }
         
         case 'RECEIVED_ADVENTURES':
+
+            adventures = action.payload
+            
             return {
                 ...state,
                 adventures: action.payload,
@@ -33,6 +41,12 @@ const adventureReducer = (state = initialState, action) => {
             return {
                 ...state,
                 adventures: [...state.adventures, action.payload],
+                loading: false
+            }
+        case 'SEARCH_BY_LOCATION':
+            return {
+                ...state,
+                adventures: action.payload,
                 loading: false
             }
 

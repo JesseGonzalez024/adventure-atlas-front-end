@@ -26,13 +26,8 @@ class NewAdventure extends React.Component{
 
         const {name, location, description, photoCollection, tagCollection} = this.state
         const adventure = {name, location, description, photos_attributes: photoCollection.map((string) => ({text: string}))}
-        // const photos = {photoCollection}
-        // const tags = {tagCollection}
-        debugger
+
         this.props.addAdventure(adventure)
-        // this.props.addPhotos(photos) 
-            // .then(resp => console.log(resp), this.props.addPhotos(photos))
-        // this.props.addTags(tags)   
         
         this.setState({
             name: '',

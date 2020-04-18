@@ -19,7 +19,6 @@ const AdvShowCard = (props) => {
     }
     
     const adventure = props.adventures.find(adventure => adventure.id == props.id)
-    console.log(adventure)
     
     return (
         <div>

@@ -1,4 +1,16 @@
 
+export const searchByLocation = (string, adventures) => {
+    let results = adventures.filter(adv => {
+      return adv.location.includes(string)
+    })
+
+    return {
+      type: 'SEARCH_BY_LOCATION',
+      payload: results
+    }
+
+}
+
 export const upvoteAdventure = id => {
   return {
     type: 'UPVOTE_ADVENTURE',

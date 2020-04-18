@@ -3,17 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 const AdventureCard = props => {
 
-   let imageStyle = {
-        borderRadius: "10px",
-        maxWidth: "100%",
-        height: "auto"
-    }
     return (
         <div id="AdvCard">
             <fieldset>
                 <NavLink key={props.id} to={`/adventures/${props.id}`}><h3>{props.name}</h3></NavLink>
                 <p>{props.location}</p>
-                <img src={props.photos[0].text} style={imageStyle}></img>
+                <img src={props.photos[0].text}></img>
             </fieldset>
             <br />
         </div>
