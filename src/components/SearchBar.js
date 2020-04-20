@@ -7,8 +7,7 @@ import { fetchAdventures } from '../actions/adventures'
 class SearchBar extends React.Component {
 
     state = {
-        search: '',
-        switch: true
+        search: ''
     }
 
     handleChange = event => {

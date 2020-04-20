@@ -4,16 +4,9 @@ let initialState = {
     loading: false
 }
 
-let  adventures 
-
-export function allAdventures(){
-    return  adventures
-}
-
-
 const adventureReducer = (state = initialState, action) => {
 
-    console.log("Inside Adventures Reducer", action, state)
+    console.log("Inside Adventures Reducer", action)
 
     switch(action.type) {
         case 'FETCHING_ADVENTURES':
@@ -23,8 +16,6 @@ const adventureReducer = (state = initialState, action) => {
             }
         
         case 'RECEIVED_ADVENTURES':
-
-            adventures = action.payload
             
             return {
                 ...state,

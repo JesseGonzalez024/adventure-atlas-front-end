@@ -5,14 +5,12 @@ import React from 'react'
 // Renders each individual tag 
 
 
-class Filter extends React.Component {
-
-    render(){
-        return (
-            <div>
-            </div>
-        )
-    }
+const TagCard = (props) => {
+    return (
+        <>
+            <h6>{props.text}</h6>
+        </>
+    )
 }
 
-export default Filter
+export default TagCard

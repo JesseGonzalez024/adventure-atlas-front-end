@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
+import TagCard from '../components/TagCard'
 import { addAdventure } from '../actions/adventures'
-import { addPhotos } from '../actions/photos'
-import { addTags } from '../actions/tags'
 
 class NewAdventure extends React.Component{
 
@@ -51,7 +50,18 @@ class NewAdventure extends React.Component{
         this.setState(prevState => ({photo: '', photoCollection: [...prevState.photoCollection, value]}))
     }
 
+    renderTags = () => {
+        return this.props.adventures.map((adv) => {
+            return adv.tags.map((tag) => {
+                return <TagCard key={tag.id} text={tag.text}/>
+            })
+        })
+    }
+
+
     render(){
+
+        // console.log(this.props.adventures)
         
         return (
             <div>
@@ -100,6 +110,8 @@ class NewAdventure extends React.Component{
                             <br />
                             <br />
                         </div>
+                        <p>Create new tags or Select from existing ones</p>
+                        {this.renderTags()}
                         <button 
                             onClick={this.handleOnSubmit} 
                             type="submit" 
@@ -112,13 +124,10 @@ class NewAdventure extends React.Component{
     }
 }
 
-const mapDispatchToProps = dispatch => {
- 
+const mapStateToProps = (state) => {
     return {
-      addAdventure: (adventure) => { dispatch(addAdventure(adventure, console.log("Running addAdventure function now", adventure)))},
-      addPhotos: (photos) => {dispatch(addPhotos(photos))},
-      addTags: (tags) => {dispatch(addTags(tags))}
+        adventures: state.adventureReducer.adventures
     }
-}
+  }
 
-export default connect(null, mapDispatchToProps)(NewAdventure);
+export default connect(mapStateToProps, { addAdventure })(NewAdventure);

@@ -21,10 +21,9 @@ const AdvShowCard = (props) => {
     const adventure = props.adventures.find(adventure => adventure.id == props.id)
     
     return (
-        <div>
+        <>
             {renderAdventure(adventure)}
-        </div>
-
+        </>
     )
 }
 
