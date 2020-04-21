@@ -1,5 +1,5 @@
 import React from 'react'
-
+import TagCard from './TagCard'
 
 const AdvShowCard = (props) => {
 
@@ -12,6 +12,7 @@ const AdvShowCard = (props) => {
                     <h3>{adventure.location}</h3>
                     <p>{adventure.description}</p>
                     <br />
+                    {adventure.tags.map((tag) => <TagCard key={adventure.id} value={tag.text}/>)}
                     {adventure.photos.map((image) => <img key={adventure.id} src={image.text}></img>)}
                 </div>
             )
