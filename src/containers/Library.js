@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar'
-import Filter from '../components/TagCard'
+import Tags from './Tags'
 import Adventures from './Adventures'
 
 const Library = () => (
@@ -8,7 +8,7 @@ const Library = () => (
             <br />
             <h1>Adventure Atlas Library</h1>
             <SearchBar />
-            <Filter />
+            {/* <Tags /> */}
             <Adventures />
         </div>
 )

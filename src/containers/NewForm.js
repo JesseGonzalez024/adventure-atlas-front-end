@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-import TagCard from '../components/TagCard'
+import TagInput from '../components/TagInput'
 import { addAdventure } from '../actions/adventures'
 
 class NewAdventure extends React.Component{
@@ -24,7 +24,7 @@ class NewAdventure extends React.Component{
         event.preventDefault()
 
         const {name, location, description, photoCollection, tagCollection} = this.state
-        const adventure = {name, location, description, photos_attributes: photoCollection.map((string) => ({text: string}))}
+        const adventure = {name, location, description, photos_attributes: photoCollection.map((string) => ({text: string})), tags_attributes: tagCollection.map((string) => ({text: string}))}
 
         this.props.addAdventure(adventure)
         
@@ -51,22 +51,26 @@ class NewAdventure extends React.Component{
     }
 
     renderTags = () => {
+        // Add filter to only display unique tags here.
         return this.props.adventures.map((adv) => {
             return adv.tags.map((tag) => {
-                return <TagCard key={tag.id} text={tag.text}/>
+                return <TagInput key={tag.id} text={tag.text} handleCheck={this.handleCheck}/>
             })
         })
     }
 
+    //Newest Addition
+    handleCheck = (event) => {
+        console.log(event.target.value)
+        let value = event.target.value
+        this.setState(prevState => ({tagCollection: [...prevState.tagCollection, value]}))
+    }
 
     render(){
-
-        // console.log(this.props.adventures)
         
         return (
             <div>
                 <h1>Create a New Adventure!</h1>
-                
                 <form id="newForm" onSubmit={(event) => this.handleOnSubmit(event)}>
                         <div>
                             <input 
@@ -112,6 +116,8 @@ class NewAdventure extends React.Component{
                         </div>
                         <p>Create new tags or Select from existing ones</p>
                         {this.renderTags()}
+                        <br />
+                        <br />
                         <button 
                             onClick={this.handleOnSubmit} 
                             type="submit" 

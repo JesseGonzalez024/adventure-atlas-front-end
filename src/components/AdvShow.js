@@ -12,7 +12,7 @@ const AdvShowCard = (props) => {
                     <h3>{adventure.location}</h3>
                     <p>{adventure.description}</p>
                     <br />
-                    {adventure.photos.map((image) => <img src={image.text}></img>)}
+                    {adventure.photos.map((image) => <img key={adventure.id} src={image.text}></img>)}
                 </div>
             )
         }
