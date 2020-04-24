@@ -1,38 +1,35 @@
 import React from 'react'
-import SearchBar from '../components/SearchBar'
-import Tags from './Tags'
+
 import { connect } from 'react-redux'
 
-import AdventureCard from '../components/AdventureCard'
+import SearchBar from '../components/SearchBar'
+import List from './List'
+import Tags from './Tags'
+
 
 class Adventures extends React.Component{
     
-
-    renderAdventures = () => {
-        return this.props.adventures.map((adv) => {
-            return (
-                <AdventureCard
-                    key={adv.id}
-                    id={adv.id} 
-                    name={adv.name}
-                    location={adv.location}
-                    description={adv.description}
-                    photos={adv.photos}
-                />  
-            )
-        })
+    state = {
+        adventures: []
     }
     
+    handleSearchBar = (value) => {
+        let results = this.props.adventures.filter(adv => {
+            return adv.location.includes(value)
+          })
+          console.log(results)
+
+    }
+
     render() {
+
         return (
             <div>
                 <br />
                 <h1>Adventure Atlas Library</h1>
-                <SearchBar />
-                <Tags />
-                <div id="AdventuresContainer">
-                    {this.props.loading === true ? <p>Loading Content...</p> : this.renderAdventures()}
-                </div>
+                <SearchBar adventures={this.props.adventures} handleSearchBar={this.handleSearchBar}/>
+                <Tags tags={this.props.adventures}/>
+                {this.props.adventures.length > 0 ? <List adventures={this.props.adventures}/> : <p>Loading Content...</p>}
             </div>
         )
     };

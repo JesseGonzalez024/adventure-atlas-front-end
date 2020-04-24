@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
 
-import { searchByLocation } from '../actions/adventures'
-import { fetchAdventures } from '../actions/adventures'
+import { connect } from 'react-redux'
 
 class SearchBar extends React.Component {
 
@@ -16,10 +14,7 @@ class SearchBar extends React.Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        this.props.searchByLocation(this.state.search, this.props.adventures)
-        if (this.state.search == '') {
-            this.props.fetchAdventures()
-        }
+        this.props.handleSearchBar(this.state.search)
         this.setState({search: ''})
     }
 
@@ -34,12 +29,16 @@ class SearchBar extends React.Component {
                         value={this.state.search}
                         placeholder="Search by location">
                     </input>
-                    <button id="searchSubmit" onClick={this.handleOnSubmit}>Search</button>
+                    <button 
+                        id="searchSubmit" 
+                        onClick={(event) => this.handleOnSubmit(event)}
+                        >Search
+                    </button>
                 </form>
                 <br />
             </div>
-        )
-    }
+        );
+    };
 }
 
 const mapStateToProps = (state) => {
@@ -48,4 +47,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { searchByLocation, fetchAdventures })(SearchBar)
+export default connect(mapStateToProps)(SearchBar)
