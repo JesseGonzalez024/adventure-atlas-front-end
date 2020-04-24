@@ -1,4 +1,6 @@
 import React from 'react'
+import SearchBar from '../components/SearchBar'
+import Tags from './Tags'
 import { connect } from 'react-redux'
 
 import AdventureCard from '../components/AdventureCard'
@@ -23,8 +25,14 @@ class Adventures extends React.Component{
     
     render() {
         return (
-            <div id="AdventuresContainer">
-                {this.props.loading === true ? <p>Loading Content...</p> : this.renderAdventures()}
+            <div>
+                <br />
+                <h1>Adventure Atlas Library</h1>
+                <SearchBar />
+                <Tags />
+                <div id="AdventuresContainer">
+                    {this.props.loading === true ? <p>Loading Content...</p> : this.renderAdventures()}
+                </div>
             </div>
         )
     };

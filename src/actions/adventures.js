@@ -11,17 +11,10 @@ export const searchByLocation = (string, adventures) => {
 
 }
 
-export const upvoteAdventure = id => {
-  return {
-    type: 'UPVOTE_ADVENTURE',
-    id
-  };
-};
-
 // ASYNC
 export const addAdventure = adventure => {
   console.log("Inside addAdventure action creator", adventure)
-    
+
   const postAdventureObj = {
         method: "POST",
         headers: {
@@ -33,21 +26,19 @@ export const addAdventure = adventure => {
 
   return (dispatch) => {
     dispatch({ type: 'CREATING_ADVENTURE' });
-
+    
     return fetch("http://127.0.0.1:3000/adventures", postAdventureObj)
           .then(resp => resp.json())
           .then(adventure => {
             dispatch({
-            type: 'ADVENTURE_CREATED',
-            payload: adventure
+              type: 'ADVENTURE_CREATED',
+              payload: adventure
             })
             return adventure
         })
   };
 };
 
-//This Action is called by the Library Container
-//Retrives all Adv instances from API
 export function fetchAdventures(){
     return (dispatch) => {
       dispatch({ type: 'FETCHING_ADVENTURES' });

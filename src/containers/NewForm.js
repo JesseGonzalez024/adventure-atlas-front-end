@@ -25,9 +25,11 @@ class NewAdventure extends React.Component{
 
         const {name, location, description, photoCollection, tagCollection} = this.state
         const adventure = {name, location, description, photos_attributes: photoCollection.map((string) => ({text: string})), tags_attributes: tagCollection.map((string) => ({text: string}))}
-
+        console.log('a')
         this.props.addAdventure(adventure)
-        
+        for(let i = 0 ; i < 10000 ; i++) {
+            console.log('f')
+        }
         this.setState({
             name: '',
             location: '',
@@ -134,6 +136,6 @@ const mapStateToProps = (state) => {
     return {
         adventures: state.adventureReducer.adventures
     }
-  }
+}
 
 export default connect(mapStateToProps, { addAdventure })(NewAdventure);

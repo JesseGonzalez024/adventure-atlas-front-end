@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './App.css';
 
 import Home from './components/Home'
-import Library from './containers/Library'
+import Adventures from './containers/Adventures'
 import NewAdventure from './containers/NewForm'
 import NavBar from './components/NavBar'
 import AdvShowCard from './components/AdvShow'
@@ -23,7 +23,7 @@ class App extends React.Component{
         <NavBar />
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/adventures" component={Library}/>
+          <Route exact path="/adventures" component={Adventures}/>
           <Route exact path="/adventures/new" component={NewAdventure}/>
           <Route exact path='/adventures/:id' component={( { match } ) => <AdvShowCard adventures={this.props.adventures} match={match} id={match.params.id}/>}/>
         </Switch>
