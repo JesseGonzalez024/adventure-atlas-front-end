@@ -27,6 +27,10 @@ class Adventures extends React.Component{
         }
     }
 
+    handleTagSearch = () => {
+
+    }
+
     passAdevnturesToList = () => {
         if (this.props.adventures.length === 0) {
             return <p>Loading Content...</p>
@@ -42,8 +46,10 @@ class Adventures extends React.Component{
             <div>
                 <br />
                 <h1>Adventure Atlas Library</h1>
-                <SearchBar adventures={this.props.adventures} handleSearchBar={this.handleSearchBar}/>
-                <Tags tags={this.props.adventures}/>
+                <SearchBar adventures={this.props.adventures} 
+                    handleSearchBar={this.handleSearchBar}/>
+                <Tags 
+                    handleTagSearch={TouchList.handleTagSearch}/>
                 {this.passAdevnturesToList()}
             </div>
         )

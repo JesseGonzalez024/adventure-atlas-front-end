@@ -9,19 +9,19 @@ class Tags extends React.Component{
        options: []
    } 
 
-    // componentDidMount(){
+    componentDidMount(){
 
-    //     function tagOptions(resp) {
-    //         return resp.map((tag) => {
-    //             return {value: tag.text, label: tag.text}
-    //         })
-    //     }
+        function tagOptions(resp) {
+            return resp.map((tag) => {
+                return {value: tag.text, label: tag.text}
+            })
+        }
     
-    //     return fetch("http://127.0.0.1:3000/tags")
-    //         .then(resp => resp.json())
-    //         .then(resp => this.setState({options: tagOptions(resp)}))
+        return fetch("http://127.0.0.1:3000/tags")
+            .then(resp => resp.json())
+            .then(resp => this.setState({options: tagOptions(resp)}))
             
-    // }
+    }
 
 render(){
 
