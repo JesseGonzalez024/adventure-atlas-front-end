@@ -11,7 +11,8 @@ class Adventures extends React.Component{
     
     state = {
         adventures: [],
-        search: false
+        search: false,
+        tags: false
     }
     
     handleSearchBar = (value) => {
@@ -27,16 +28,40 @@ class Adventures extends React.Component{
         }
     }
 
-    handleTagSearch = () => {
-
+    handleTagSearch = (value) => {
+        if (value) {
+            let inputs = value.map((x) => {
+                return x.value
+            })
+            console.log("inputs", inputs) 
+            
+            let array = []
+            this.props.adventures.map((adv) => {
+                adv.tags.filter((tag) => {
+                    if (tag.text == inputs.map((x) => {return x})){
+                        array.push(adv)
+                    }
+                })
+            })
+        console.log(array)
+        this.setState({adventures: array})
+        this.setState({tags: true})
+        
+        } else {
+            this.setState({tags: false})
+        }
     }
 
-    passAdevnturesToList = () => {
+    passAdventuresToList = () => {
         if (this.props.adventures.length === 0) {
             return <p>Loading Content...</p>
         } else if (this.state.search === false){
             return <List adventures={this.props.adventures}/>
         } else if (this.state.search === true) {
+            return <List adventures={this.state.adventures}/>
+        } else if (this.state.tags === false) {
+            return <List adventures={this.props.adventures}/>
+        } else if (this.state.tags === true) {
             return <List adventures={this.state.adventures}/>
         }
     }
@@ -47,10 +72,12 @@ class Adventures extends React.Component{
                 <br />
                 <h1>Adventure Atlas Library</h1>
                 <SearchBar adventures={this.props.adventures} 
-                    handleSearchBar={this.handleSearchBar}/>
+                    handleSearchBar={this.handleSearchBar}
+                />
                 <Tags 
-                    handleTagSearch={TouchList.handleTagSearch}/>
-                {this.passAdevnturesToList()}
+                    handleTagSearch={this.handleTagSearch}
+                />
+                {this.passAdventuresToList()}
             </div>
         )
     };

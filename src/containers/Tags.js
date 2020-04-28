@@ -1,5 +1,4 @@
 import React from 'react'
-import makeAnimated from 'react-select/animated';
 import Select from 'react-select'
 
 
@@ -27,10 +26,13 @@ render(){
 
     return (
         <div>
-            <form>
-                <Select options={this.state.options}></Select>
-                <br />
-            </form>
+            <Select 
+                placeholder="Add Filter Tags"
+                onChange={value => this.props.handleTagSearch(value)}
+                options={this.state.options} 
+                isMulti>
+            </Select>
+            <br />
         </div>
      )
     }
