@@ -10,7 +10,7 @@ import Tags from './Tags'
 class Adventures extends React.Component{
     
     state = {
-        adventures: [],
+        adventures: this.props.adventures,
         search: false,
         tags: false
     }
@@ -25,6 +25,9 @@ class Adventures extends React.Component{
         }
         else {
             this.setState({search: false})
+            if (this.state.tags === false) {
+                this.setState({adventures: this.props.adventures})
+            }
         }
     }
 
@@ -36,7 +39,7 @@ class Adventures extends React.Component{
             console.log("inputs", inputs) 
             
             let array = []
-            this.props.adventures.map((adv) => {
+            this.state.adventures.map((adv) => {
                 adv.tags.filter((tag) => {
                     if (tag.text == inputs.map((x) => {return x})){
                         array.push(adv)
@@ -49,19 +52,20 @@ class Adventures extends React.Component{
         
         } else {
             this.setState({tags: false})
+            if (this.state.search === false) {
+                this.setState({adventures: this.props.adventures})
+            }
         }
     }
 
     passAdventuresToList = () => {
         if (this.props.adventures.length === 0) {
             return <p>Loading Content...</p>
-        } else if (this.state.search === false){
+        }
+        else if (this.state.search === false && this.state.tags === false) {
             return <List adventures={this.props.adventures}/>
-        } else if (this.state.search === true) {
-            return <List adventures={this.state.adventures}/>
-        } else if (this.state.tags === false) {
-            return <List adventures={this.props.adventures}/>
-        } else if (this.state.tags === true) {
+        }
+        else {
             return <List adventures={this.state.adventures}/>
         }
     }
