@@ -11,50 +11,36 @@ class Adventures extends React.Component{
     
     state = {
         adventures: this.props.adventures,
-        search: false,
-        tags: false
+        search: "",
+        tags: []
+    }
+
+    searchResults = () => {
+        let results = this.props.adventures.filter(adv => {
+            return adv.location.includes(this.state.search)
+          })
+          if (this.state.tags.length > 0) {
+           return results.filter((adv) => {
+               let tagNames = adv.tags.map((tag) => tag.text)
+                let matchingTags = tagNames.filter((tagName) => this.state.tags.includes(tagName))
+                return matchingTags.length > 0 // Returns a boolean value which is needed as part of the filter iteration
+            })
+          } else {
+              return results
+          }
     }
     
     handleSearchBar = (value) => {
-        if (value) {
-            let results = this.props.adventures.filter(adv => {
-                return adv.location.includes(value)
-              }) 
-              this.setState({adventures: results})
-              this.setState({search: true})
-        }
-        else {
-            this.setState({search: false})
-            if (this.state.tags === false) {
-                this.setState({adventures: this.props.adventures})
-            }
-        }
+        this.setState({search: value})
     }
 
-    handleTagSearch = (value) => {
+
+    handleTagSearch = (value) => {   
         if (value) {
             let inputs = value.map((x) => {
                 return x.value
             })
-            console.log("inputs", inputs) 
-            
-            let array = []
-            this.state.adventures.map((adv) => {
-                adv.tags.filter((tag) => {
-                    if (tag.text == inputs.map((x) => {return x})){
-                        array.push(adv)
-                    }
-                })
-            })
-        console.log(array)
-        this.setState({adventures: array})
-        this.setState({tags: true})
-        
-        } else {
-            this.setState({tags: false})
-            if (this.state.search === false) {
-                this.setState({adventures: this.props.adventures})
-            }
+            this.setState({tags: inputs})
         }
     }
 
@@ -62,11 +48,8 @@ class Adventures extends React.Component{
         if (this.props.adventures.length === 0) {
             return <p>Loading Content...</p>
         }
-        else if (this.state.search === false && this.state.tags === false) {
-            return <List adventures={this.props.adventures}/>
-        }
         else {
-            return <List adventures={this.state.adventures}/>
+            return <List adventures={this.searchResults()}/>
         }
     }
 

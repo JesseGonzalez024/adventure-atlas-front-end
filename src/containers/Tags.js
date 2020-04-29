@@ -1,7 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
 
-
 class Tags extends React.Component{
 
    state = {
