@@ -51,7 +51,6 @@ class NewAdventure extends React.Component{
     }
 
     renderTags = () => {
-        // Add filter to only display unique tags here.
         return this.props.adventures.map((adv) => {
             return adv.tags.map((tag) => {
                 return <TagInput key={tag.id} text={tag.text} handleCheck={this.handleCheck}/>
