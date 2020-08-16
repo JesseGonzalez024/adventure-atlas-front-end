@@ -59,7 +59,6 @@ class NewAdventure extends React.Component{
         })
     }
 
-    //Newest Addition
     handleCheck = (event) => {
         console.log(event.target.value)
         let value = event.target.value
